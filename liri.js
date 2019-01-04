@@ -25,7 +25,10 @@ var spotifySearch = (input) => {
 
         var item = data.tracks.items[0]
 
-        console.log("--------------------------")
+        console.log('\n' +"╭************************╮")
+        console.log("|     SPOTIFY SEARCH     |")
+        console.log("╰************************╯"+ '\n')
+
 
         // print the artist and song name
         console.log("Artist Name: " + item.artists[0].name);
@@ -42,7 +45,7 @@ var spotifySearch = (input) => {
 
         // print album name
         console.log("Album Name: " + item.album.name);
-        console.log("--------------------------")
+        console.log("--------------------------"+ '\n')
 
 
     }); // end spotify search
@@ -63,9 +66,9 @@ var concertSearch = (input) => {
 
         if (response.data.length == 0) {
 
-            console.log("----------------------------");
-            console.log("No upcoming events");
-            console.log("----------------------------");
+            console.log('\n'+ "╭************************╮")
+            console.log("|   NO UPCOMING EVENTS   |")
+            console.log("╰************************╯"+ '\n')
 
         }
 
@@ -85,8 +88,10 @@ var concertSearch = (input) => {
             // slice off the time 
             date = cutDate.slice(0, 1);
             ticketSale = cutTicket.slice(0, 1);
-
-            console.log("----------------------------");
+            console.log('\n'+ "╭************************╮")
+            console.log("|     CONCERT SEARCH     |")
+            console.log("╰************************╯"+ '\n')
+    
             console.log("Lineup: "+ item.lineup);
             console.log("Venue Name: " + item.venue.name);
             console.log("Venue Location: " + item.venue.city + ", " + item.venue.region + " (" + item.venue.country + ")");
@@ -94,7 +99,7 @@ var concertSearch = (input) => {
             // use moment to format the date
             console.log("Event Date: " + moment(date[0]).format('L'));
             console.log("Tickets on Sale: " + moment(ticketSale[0]).format('L'))
-            console.log("----------------------------");
+            console.log("----------------------------"+ '\n');
 
         }
 
@@ -117,7 +122,10 @@ var movieSearch = (input) => {
         // create a variable for the response
         var item = response.data;
 
-        console.log("----------------------------");
+        console.log('\n'+ "╭************************╮")
+        console.log("|      MOVIE SEARCH      |")
+        console.log("╰************************╯"+ '\n')
+
         console.log("Title: " + item.Title);
         console.log("Release Year: " + item.Year);
         console.log("IMDB Rating: " + item.imdbRating);
@@ -126,7 +134,7 @@ var movieSearch = (input) => {
         console.log("Language: " + item.Language);
         console.log("Plot: " + item.Plot);
         console.log("Actors: " + item.Actors);
-        console.log("----------------------------");
+        console.log("----------------------------"+ '\n');
 
     }) // end .then 
 
@@ -141,6 +149,11 @@ var fileSearch = () => {
         }
         var dataArr = data.split(",");
         var song = dataArr[1];
+
+        console.log('\n'+ "╭********************************╮")
+        console.log("|     DO WHAT IT SAYS SEARCH     |")
+        console.log("╰********************************╯")
+
 
         spotifySearch(song);
 
