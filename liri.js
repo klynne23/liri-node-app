@@ -48,9 +48,14 @@ var spotifySearch = (input) => {
     }); // end spotify search
 
 
-}    // end spotifySearch function
+} // end spotifySearch function
 
 var concertSearch = (input) => {
+
+    // console.log(input);
+    if (input == undefined) {
+        input = "Ariana Grande";
+    }
 
     var queryURL = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp";
     axios.get(queryURL).then(function (response) {
@@ -71,20 +76,24 @@ var concertSearch = (input) => {
 
             // declare the date variable
             var date = item.datetime;
+            var ticketSale = item.on_sale_datetime;
 
             // split the date to split up the date and time
             var cutDate = date.split("T");
+            var cutTicket = ticketSale.split("T");
 
             // slice off the time 
             date = cutDate.slice(0, 1);
+            ticketSale = cutTicket.slice(0, 1);
 
             console.log("----------------------------");
+            console.log("Lineup: "+ item.lineup);
             console.log("Venue Name: " + item.venue.name);
+            console.log("Venue Location: " + item.venue.city + ", " + item.venue.region + " (" + item.venue.country + ")");
 
             // use moment to format the date
-            console.log("Venue Location: " + item.venue.city + ", " + item.venue.country);
             console.log("Event Date: " + moment(date[0]).format('L'));
-
+            console.log("Tickets on Sale: " + moment(ticketSale[0]).format('L'))
             console.log("----------------------------");
 
         }
@@ -96,7 +105,7 @@ var concertSearch = (input) => {
 var movieSearch = (input) => {
 
     if (input === undefined) {
-        input = "Mr. Nobody"
+        input = "The Sandlot"
     }
 
     // creating the axios query url
@@ -104,8 +113,6 @@ var movieSearch = (input) => {
 
     // making the axios request
     axios.get(queryURL).then(function (response) {
-
-        // console.log(response.data)
 
         // create a variable for the response
         var item = response.data;
@@ -126,7 +133,9 @@ var movieSearch = (input) => {
 } // end movieSearch
 
 var fileSearch = () => {
+
     fs.readFile("random.txt", "utf8", function (error, data) {
+
         if (error) {
             return console.log(error);
         }
