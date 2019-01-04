@@ -13,7 +13,7 @@
 
 
 **spotify-this-song**: this command will send a request to the spotify api and display the:
-* Aritist Name
+* Artist Name
 * Song Name
 * A 30 second preview of the song (if available)
 * Album Name
@@ -28,6 +28,7 @@
 * Ticket Sale Date
 
 -- if no artist is provided the program will display data for "Ariana Grande"
+
 -- if the bands in town api returns no results the program will display "no upcoming events"
 
 **movie-this**: this command will send a request to the OMDB api and display the:
