@@ -11,15 +11,15 @@
 4. node liri.js do-what-it-says
 
 
-#spotify-this-song
+**spotify-this-song**
 * this command will send a request to the spotify api and display the:
-    1. Aritist Name
-    2. Song Name
-    3. A 30 second preview of the song (if available)
-    4. Album Name
+1. Aritist Name
+2. Song Name
+3. A 30 second preview of the song (if available)
+4. Album Name
 * if no song is provided the data for "head above water" by avril lavigne will be displayed
 
-#concert-this
+**concert-this**
 * this command will send a request to the bands in town api and display the:
     1. Lineup
     2. Venue Name
@@ -29,7 +29,7 @@
 * if no artist is provided the program will display data for "Ariana Grande"
 * if the bands in town api returns no results the program will display "no upcoming events"
 
-#movie-this
+**movie-this**
 * this command will send a request to the OMDB api and display the:
     1. Title
     2. Release Year
@@ -43,5 +43,5 @@
 
 
 
-#do-what-it-says
+**do-what-it-says**
 * this command will read a file called random.txt and execute a command based on the text inside that file.
