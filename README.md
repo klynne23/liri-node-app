@@ -18,7 +18,7 @@
 * A 30 second preview of the song (if available)
 * Album Name
 
-- if no song is provided the data for "head above water" by avril lavigne will be displayed
+-- if no song is provided the data for "head above water" by avril lavigne will be displayed
 
 **concert-this**: this command will send a request to the bands in town api and display the:
 * Lineup
@@ -27,8 +27,8 @@
 * Event Date
 * Ticket Sale Date
 
-- if no artist is provided the program will display data for "Ariana Grande"
-- if the bands in town api returns no results the program will display "no upcoming events"
+-- if no artist is provided the program will display data for "Ariana Grande"
+-- if the bands in town api returns no results the program will display "no upcoming events"
 
 **movie-this**: this command will send a request to the OMDB api and display the:
 * Title
@@ -40,7 +40,7 @@
 * Plot
 * Actors
 
-- if no movie is provided the program will display data for the film "The Sandlot"
+-- if no movie is provided the program will display data for the film "The Sandlot"
 
 
 
