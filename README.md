@@ -1,23 +1,23 @@
 # liri-node-app
 
 # Working Program Video
-
+* coming soon
 
 # Program Guide
-* the program will expect input from the command line in one of 4 ways
-1. node liri.js spotify-this-song "song title"
-2. node liri.js concert-this "artist name"
-3. node liri.js movie-this "movie title"
-4. node liri.js do-what-it-says
+the program will expect input from the command line in one of 4 ways
+* node liri.js spotify-this-song "song title"
+* node liri.js concert-this "artist name"
+* node liri.js movie-this "movie title"
+* node liri.js do-what-it-says
 
 
 **spotify-this-song**
-* this command will send a request to the spotify api and display the:
-1. Aritist Name
-2. Song Name
-3. A 30 second preview of the song (if available)
-4. Album Name
-* if no song is provided the data for "head above water" by avril lavigne will be displayed
+this command will send a request to the spotify api and display the:
+* Aritist Name
+* Song Name
+* A 30 second preview of the song (if available)
+* Album Name
+if no song is provided the data for "head above water" by avril lavigne will be displayed
 
 **concert-this**
 * this command will send a request to the bands in town api and display the:
