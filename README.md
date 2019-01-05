@@ -1,7 +1,7 @@
 # liri-node-app
 
 # Working Program Video
-* coming soon
+* https://www.youtube.com/watch?v=Qg4u1qjUBBU
 
 # Program Guide
 
