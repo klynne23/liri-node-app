@@ -5,14 +5,19 @@
 
 # Program Guide
 
-**the program will expect input from the command line in one of 4 ways**
-* node liri.js spotify-this-song "song title"
-* node liri.js concert-this "artist name"
-* node liri.js movie-this "movie title"
-* node liri.js do-what-it-says
+**the program will ask the user to select one of 4 searches**
+* spotify-this-song 
+* concert-this 
+* movie-this
+* do-what-it-says
 
 
-**spotify-this-song**: this command will send a request to the spotify api and display the:
+**do-what-it-says**: this command will read a file called random.txt and execute a command based on the text inside that file.
+* the random.txt file contains text holding a search and data
+* once the random.txt file is read, the spotify-this-song function will be called and passed the data captured from random.txt
+
+
+**spotify-this-song**: once selected the user will be prompted to enter in a search term. this command will then send a request to the spotify api and display the:
 * Artist Name
 * Song Name
 * A 30 second preview of the song (if available)
@@ -20,7 +25,7 @@
 
 -- if no song is provided the data for "head above water" by avril lavigne will be displayed
 
-**concert-this**: this command will send a request to the bands in town api and display the:
+**concert-this**: once selected the user will be prompted to enter in a search term. this command will then send a request to the bands in town api and display the:
 * Lineup
 * Venue Name
 * Venue Location
@@ -31,7 +36,7 @@
 
 -- if the bands in town api returns no results the program will display "no upcoming events"
 
-**movie-this**: this command will send a request to the OMDB api and display the:
+**movie-this**: once selected the user will be prompted to enter in a search term. this command will then send a request to the OMDB api and display the:
 * Title
 * Release Year
 * IMDB Rating
@@ -45,6 +50,3 @@
 
 
 
-**do-what-it-says**: this command will read a file called random.txt and execute a command based on the text inside that file.
-* the random.txt file contains text holding a search and data
-* once the random.txt file is read, the spotify-this-song function will be called and passed the data captured from random.txt

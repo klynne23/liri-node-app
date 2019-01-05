@@ -5,6 +5,7 @@
 require("dotenv").config();
 var Spotify = require("node-spotify-api");
 var axios = require("axios");
+var inquirer = require("inquirer");
 var moment = require("moment");
 var keys = require("./keys.js");
 var fs = require("fs");
@@ -14,9 +15,9 @@ var fs = require("fs");
 // access to the spotify api
 var spotify = new Spotify(keys.spotify);
 
-// grab the user inputs from the command line
-var userSelection = process.argv[2];
-var input = process.argv[3];
+// set variables
+var userSelection;
+var input;
 
 
 
@@ -28,7 +29,7 @@ var input = process.argv[3];
 var spotifySearch = (input) => {
 
     // if there is no user input, set input and perform search
-    if (input === undefined) {
+    if (input === "" || input == undefined) {
         input = "Head Above Water"
     }
 
@@ -85,7 +86,7 @@ var spotifySearch = (input) => {
 var concertSearch = (input) => {
 
     // console.log(input);
-    if (input == undefined) {
+    if (input == undefined || input == "") {
         input = "Ariana Grande";
     }
 
@@ -145,7 +146,7 @@ var concertSearch = (input) => {
 
 var movieSearch = (input) => {
 
-    if (input === undefined) {
+    if (input === undefined || input == "") {
         input = "The Sandlot"
     }
 
@@ -209,17 +210,59 @@ var fileSearch = () => {
 } // end fileSearch
 
 
-switch (userSelection) {
-    case "spotify-this-song":
-        spotifySearch(input);
-        break;
-    case "concert-this":
-        concertSearch(input);
-        break;
-    case "movie-this":
-        movieSearch(input);
-        break;
-    case "do-what-it-says":
-        fileSearch();
-        break;
+// prompt the user to select a search
+inquirer.prompt([{
+
+    type: "list",
+    message: "Select a search",
+    choices: ["spotify-this-song", "concert-this",  "movie-this", "do-what-it-says"],
+    default: "spotify-this-song",
+    name: "userPick"
+
+}]).then(function(response){
+
+    // set userSelection equal to the users pick
+    userSelection = response.userPick;
+
+    if (response.userPick == "do-what-it-says") {
+        input = "";
+        switchFunction(userSelection, input);
+    }
+    else {
+
+        // ask the user for a search term
+        inquirer.prompt([{
+
+            type: "input",
+            message: "What would you like to search for?",
+            name: "userSearch"
+
+        }]).then(function(response){
+
+            input = response.userSearch;
+            switchFunction(userSelection, input);
+
+        }) // end .then
+    }; // end else
+
+}); // end iquirer prompt
+
+var switchFunction = (userSelection, input) => {
+
+    switch (userSelection) {
+        case "spotify-this-song":
+            spotifySearch(input);
+            break;
+        case "concert-this":
+            concertSearch(input);
+            break;
+        case "movie-this":
+            movieSearch(input);
+            break;
+        case "do-what-it-says":
+            fileSearch();
+            break;
+
+}
+
 } // end switch
