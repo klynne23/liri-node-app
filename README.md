@@ -46,3 +46,5 @@
 
 
 **do-what-it-says**: this command will read a file called random.txt and execute a command based on the text inside that file.
+* the random.txt file contains text holding a search and data
+* once the random.txt file is read, the spotify-this-song function will be called and passed the data captured from random.txt
