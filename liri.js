@@ -108,36 +108,39 @@ var concertSearch = (input) => {
         }
 
         else {
-            // declare the item variable as the response
-            var item = response.data[0];
-            // console.log(response);
-
-            // declare the date variable
-            var date = item.datetime;
-            var ticketSale = item.on_sale_datetime;
-
-            // split the date to split up the date and time
-            var cutDate = date.split("T");
-            var cutTicket = ticketSale.split("T");
-
-            // slice off the time 
-            date = cutDate.slice(0, 1);
-            ticketSale = cutTicket.slice(0, 1);
-
-
             console.log('\n' + "╭************************╮")
             console.log("|     CONCERT SEARCH     |")
             console.log("╰************************╯" + '\n')
-
-            console.log("Lineup: " + item.lineup);
-            console.log("Venue Name: " + item.venue.name);
-            console.log("Venue Location: " + item.venue.city + ", " + item.venue.region + " (" + item.venue.country + ")");
-
-            // use moment to format the date
-            console.log("Event Date: " + moment(date[0]).format('L'));
-            console.log("Tickets on Sale: " + moment(ticketSale[0]).format('L'))
-            console.log("----------------------------" + '\n');
-
+            for (var i =0; i<5; i++){
+                
+                // declare the item variable as the response
+                var item = response.data[i];
+                // console.log(response);
+                
+                // declare the date variable
+                var date = item.datetime;
+                var ticketSale = item.on_sale_datetime;
+                
+                // split the date to split up the date and time
+                var cutDate = date.split("T");
+                var cutTicket = ticketSale.split("T");
+                
+                // slice off the time 
+                date = cutDate.slice(0, 1);
+                ticketSale = cutTicket.slice(0, 1);
+                
+                
+                
+                console.log("Lineup: " + item.lineup);
+                console.log("Venue Name: " + item.venue.name);
+                console.log("Venue Location: " + item.venue.city + ", " + item.venue.region + " (" + item.venue.country + ")");
+                
+                // use moment to format the date
+                console.log("Event Date: " + moment(date[0]).format('L'));
+                console.log("Tickets on Sale: " + moment(ticketSale[0]).format('L')+ '\n')
+                console.log("----------------------------" + '\n');
+                
+            }
         }
 
     }) // end .then

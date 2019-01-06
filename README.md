@@ -1,7 +1,7 @@
 # liri-node-app
 
 # Working Program Video
-* https://www.youtube.com/watch?v=Qg4u1qjUBBU
+* https://www.youtube.com/watch?v=oDOfquvrj0I
 
 # Program Guide
 
@@ -25,7 +25,7 @@
 
 -- if no song is provided the data for "head above water" by avril lavigne will be displayed
 
-**concert-this**: once selected the user will be prompted to enter in a search term. this command will then send a request to the bands in town api and display the:
+**concert-this**: once selected the user will be prompted to enter in a search term. this command will then send a request to the bands in town api and display the first 5 results:
 * Lineup
 * Venue Name
 * Venue Location
